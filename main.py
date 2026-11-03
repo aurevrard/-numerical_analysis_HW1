@@ -136,9 +136,9 @@ def question_3c():
     rows = []
     for j in range(len(T3)):
         if j < len(b3):
-            rows.append(f"{j + 1} & {T3[j]:.4f} & {T_r[j]:.12f} & {b3[j]:.4f} & {b_r[j]:.12f} \\\\")
+            rows.append(f"{j + 1} & {T3[j]:.1f} & {T_r[j]:.6f} & {abs(T3[j] - T_r[j]):.1e} & "f"{b3[j]:.1f} & {b_r[j]:.6f} & {abs(b3[j] - b_r[j]):.1e} \\\\")
         else:                                     # T_{M+1} has no plateau value
-            rows.append(f"{j + 1} & {T3[j]:.4f} & {T_r[j]:.12f} & -- & -- \\\\")
+            rows.append(f"{j + 1} & {T3[j]:.1f} & {T_r[j]:.6f} & {abs(T3[j] - T_r[j]):.1e} & -- & -- & -- \\\\")
     with open(os.path.join(TAB_DIR, "tab_3c.tex"), "w") as file:
         file.write("\n".join(rows))
     return b_r, T_r
